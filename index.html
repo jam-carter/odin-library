@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="library.css">
+    <script src="library.js" defer></script>
+    <title>Odin Library</title>
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <h2>Library</h2>
+        </div>
+        <div class="btn-login">
+            <button>Login</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="btn-addbook">
+            <button id="new-book-btn" onclick="showNewBookPopup()">New Book</button>
+        </div>
+        <div id="library">
+            <div class="book-card">
+                <div class="card-header">
+                    <p class="book-title"></p>
+                    <p class="book-author"></p>
+                    <p class="book-pages"></p>
+                </div>
+                <div class="card-body">
+                    <button class="btn-delete" onclick="removeBook()">Delete</button>
+                    <button class="btn-read" onclick="toggleRead(${i})">Read</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright © 2023 Jamaul Aaron. All rights reserved.</p>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="new-book-modal" class="modal">
+        <div class="modal-content">
+            <form id="new-book-form">
+                <span class="close" onclick="closeNewBookPopup()">&times;</span>
+                
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="bookName" required>
+
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="bookAuthor" required>
+
+                <label for="pages">Pages:</label>
+                <input type="text" id="pages" name="bookPages" required>
+
+                <label for="read">Read:</label>
+                <input type="checkbox" id="read" name="bookRead">
+
+                <input type="submit" value="Add Book">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
