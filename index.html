@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="library.css">
+    <link rel="stylesheet" href="library-lightmode.css" id="style-sheet">
     <script src="library.js" defer></script>
     <title>Odin Library</title>
 </head>
@@ -13,8 +13,18 @@
         <div class="title">
             <h2>Library</h2>
         </div>
-        <div class="btn-login">
-            <button>Login</button>
+        <div class="header-btns">
+            <div class="btn-login">
+                <button>Login</button>
+            </div>
+            <div class="btn-mode">
+                <button id="btn-light-mode" onclick="switchStyleSheets('library-lightmode.css')">
+                    <img src="./lightmode-icon.png" alt="light-mode">
+                </button>
+                <button id="btn-dark-mode" onclick="switchStyleSheets('library-darkmode.css')">
+                    <img src="./darkmode-icon.png" alt="dark-mode">
+                </button>
+            </div>
         </div>
     </div>
     <div class="content">

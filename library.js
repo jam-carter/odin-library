@@ -74,7 +74,7 @@ function toggleRead(index) {
 	  readButton.style.backgroundColor = "red";
 	  readButton.textContent = "Not Read";
 	}
-  }
+}
   
 
 let newBookbtn = document.querySelector("#new-book-btn");
@@ -100,4 +100,13 @@ function closeNewBookPopup() {
     let modal = document.getElementById("new-book-modal");
     modal.style.display = "none";
 }
+
+
+
+function switchStyleSheets(stylesheetUrl) {
+    let styleSheet = document.getElementById("style-sheet");
+    styleSheet.href = stylesheetUrl;
+}
+
+
 
