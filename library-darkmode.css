@@ -44,7 +44,6 @@ body {
 }
 
 .btn-mode button {
-    width: 40px;
     height: 40px;
 }
 
@@ -80,6 +79,7 @@ body {
 }
 
 .book-card {
+    flex: 0 0 200px;
     background-color: #333;
     color: #fff;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
@@ -163,6 +163,7 @@ body {
 .footer {
     background-color: #333;
     color: #fff;
+    padding: 10px;
     text-align: center;
 
 }

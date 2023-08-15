@@ -27,6 +27,13 @@ function render() {
   const libraryEl = document.getElementById("library");
   const bookCards = document.querySelectorAll(".book-card");
 
+  // Remove any extra book cards
+  if (bookCards.length > myLibrary.length) {
+    for (let i = myLibrary.length; i < bookCards.length; i++) {
+      bookCards[i].remove();
+    }
+  }
+
   myLibrary.forEach((book, i) => {
     let bookCard = bookCards[i];
     if (!bookCard) {
@@ -37,12 +44,12 @@ function render() {
     }
     bookCard.innerHTML = `
       <div class="card-header">
-        <h3 class="book-title">${book.title}</h3>
-        <h5 class="book-author">${book.author}</h5>
+        <p class="book-title">${book.title}</p>
+        <p class="book-author">${book.author}</p>
         <p class="book-pages">${book.pages} Pages</p>
       </div>
       <div class="card-body">
-        <button class="btn-delete" onclick="removeBook(${i})">Delete</button>
+        <button class="btn-delete" onclick="removeBook()">Delete</button>
         <button class="btn-read" onclick="toggleRead(${i})">${book.read ? "Read" : "Not Read"}</button>
       </div>
     `;
@@ -62,20 +69,31 @@ Book.prototype.toggleRead = function() {
 }
 
 function toggleRead(index) {
-	let book = myLibrary[index];
-	book.toggleRead();
-	render();
-  
-	let readButton = document.querySelectorAll(".btn-read")[index];
-	if (book.read) {
-	  readButton.style.backgroundColor = "green";
-	  readButton.textContent = "Read";
-	} else {
-	  readButton.style.backgroundColor = "red";
-	  readButton.textContent = "Not Read";
-	}
+  console.log("Index value:", index);
+  let book = myLibrary[index];
+  if (book) {
+    book.toggleRead();
+    render();
+
+    let readButtons = document.querySelectorAll(".btn-read");
+    let readButton = readButtons[index];
+    if (readButton) {
+      if (book.read) {
+        readButton.style.backgroundColor = "green";
+        readButton.textContent = "Read";
+      } else {
+        readButton.style.backgroundColor = "red";
+        readButton.textContent = "Not Read";
+      }
+    } else {
+      console.log("Read button not found at index", index);
+    }
+  } else {
+    console.log("Book not found at index", index);
+  }
 }
-  
+
+ 
 
 let newBookbtn = document.querySelector("#new-book-btn");
 newBookbtn.addEventListener("click", function() {
