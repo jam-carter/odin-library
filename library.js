@@ -18,6 +18,13 @@ function addBookToLibrary() {
 	/*console.log("Input Values:", title, author, pages, read);*/
     let newBook = new Book(title, author, pages, read);
 	myLibrary.push(newBook);
+
+  // Reset the form fields after adding the book
+  document.querySelector("#title").value = "";
+  document.querySelector("#author").value = "";
+  document.querySelector("#pages").value = "";
+  document.querySelector("#read").checked = false;
+  
 	render();	
     /*console.log(newBook);*/
 	closeNewBookPopup(); // Close the popup after adding the book
